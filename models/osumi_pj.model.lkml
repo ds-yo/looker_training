@@ -69,4 +69,6 @@ explore: products {
   }
 }
 
-explore: users {}
+explore: users {
+  sql_always_where: ${users.age} <= 20 ;;
+}
