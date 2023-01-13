@@ -89,6 +89,11 @@ view: users {
     sql: ${TABLE}.traffic_source ;;
   }
 
+  dimension: full_name {
+    type: string
+    sql: ${first_name} || ${last_name} ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [id, last_name, first_name, events.count, order_items.count]
