@@ -49,8 +49,8 @@
     col: 0
     width: 8
     height: 7
-  - title: hoge
-    name: hoge
+  - title: piyo
+    name: piyo
     model: osumi_pj
     explore: events
     type: table
