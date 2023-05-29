@@ -2,10 +2,10 @@ name: pr_checker             # workflow 名
 on:
   pull_request:
     types: [opened, synchronize, reopened]
-    branches: [ main ]
+    branches: [ master ]
     paths: 'dashboards/**' #チェックするディレクトリと拡張子の指定
 env:
-  base_branch: "main"
+  base_branch: "master"
   diff_path: "code/**"
   target_str: "hoge"
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} #トークンの宣言。必要
