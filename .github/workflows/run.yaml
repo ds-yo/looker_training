@@ -6,7 +6,7 @@ on:
     paths: 'dashboards/**' #チェックするディレクトリと拡張子の指定
 env:
   base_branch: "master"
-  diff_path: "code/**"
+  diff_path: "dashboards/**"
   target_str: "hoge"
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} #トークンの宣言。必要
   URL: ${{ github.event.pull_request.html_url }} #プルリクのURL。参照していないが、消すと動かない？
