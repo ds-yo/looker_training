@@ -49,8 +49,8 @@
     col: 0
     width: 8
     height: 7
-  - title: 無題
-    name: 無題
+  - title: hoge
+    name: hoge
     model: osumi_pj
     explore: events
     type: table
