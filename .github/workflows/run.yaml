@@ -1,0 +1,37 @@
+name: pr_checker             # workflow 名
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: [ main ]
+    paths: 'dashboards/**' #チェックするディレクトリと拡張子の指定
+env:
+  base_branch: "main"
+  diff_path: "code/**"
+  target_str: "hoge"
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} #トークンの宣言。必要
+  URL: ${{ github.event.pull_request.html_url }} #プルリクのURL。参照していないが、消すと動かない？
+jobs:
+  build:  # job id
+    name:  Find unauthorized strings # job 名
+    runs-on: ubuntu-latest # 仮想環境指定（Windows Server, Ubuntu, Mac OSをサポートする）
+    steps:
+      - name: Switch to pull request branch
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Fetch base branch
+        run: git fetch origin ${base_branch}:${base_branch}
+      # - name: Run actions using diff_files #変更のあるファイルを抽出する。
+      #   run: |
+      #     diff_files=`git diff --name-only -G ${target_str} HEAD origin/${base_branch} -- ${diff_path} | tr "\n" " "`
+      - name: Display file name if it contains hoge #差分内に${target_str} を含む場合に、プルリクにコメントし却下する。
+        run: |
+          diff_files=`git diff --name-only -G ${target_str} HEAD origin/${base_branch} -- ${diff_path} | tr "\n" " "`
+          gh pr comment -b "debug-git_diff,$(git diff --name-only -G ${target_str} HEAD origin/${base_branch} -- ${diff_path})" ${{github.event.pull_request.html_url }}
+          gh pr comment -b "debug-diff_files,$(echo ${diff_files})" ${{github.event.pull_request.html_url }}
+          gh pr comment -b "debug-grep,$(grep ${target_str} ${diff_files})" ${{github.event.pull_request.html_url }}
+          if  grep ${target_str} ${diff_files}; then
+            gh pr comment -b "$(grep ${target_str} ${diff_files})" ${{github.event.pull_request.html_url }}
+            gh pr close ${{github.event.pull_request.html_url }}
+            echo "contains ${target_str}"
+          fi
