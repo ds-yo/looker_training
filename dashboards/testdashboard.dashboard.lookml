@@ -45,12 +45,12 @@
     defaults_version: 1
     listen:
       Longitude: distribution_centers.longitude
-    row: 0
+    row: 1
     col: 0
     width: 8
     height: 7
-  - title: piyo
-    name: piyo
+  - title: 無題
+    name: 無題
     model: osumi_pj
     explore: events
     type: table
@@ -69,10 +69,17 @@
     conditional_formatting_include_nulls: false
     defaults_version: 1
     listen: {}
-    row: 7
+    row: 8
     col: 0
     width: 7
     height: 5
+  - type: button
+    name: button_899
+    rich_content_json: '{"text":"New Button","description":"","newTab":true,"alignment":"center","size":"medium","style":"FILLED","color":"#1A73E8","href":"https://datumstudiopartner.cloud.looker.com/dashboards/osumi_pj::testdashboard2"}'
+    row: 0
+    col: 0
+    width: 24
+    height: 1
   filters:
   - name: Longitude
     title: Longitude
