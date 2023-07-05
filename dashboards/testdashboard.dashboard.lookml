@@ -7,7 +7,7 @@
   elements:
   - title: testdashboard
     name: testdashboard
-    model: osumi_pj
+    model: osumi_y_pj
     explore: distribution_centers
     type: looker_column
     fields: [distribution_centers.count, distribution_centers.name]
@@ -45,13 +45,13 @@
     defaults_version: 1
     listen:
       Longitude: distribution_centers.longitude
-    row: 1
+    row: 0
     col: 0
     width: 8
     height: 7
-  - title: 無題
-    name: 無題
-    model: osumi_pj
+  - title: piyo
+    name: piyo
+    model: osumi_y_pj
     explore: events
     type: table
     fields: [events.city, events.count]
@@ -69,14 +69,21 @@
     conditional_formatting_include_nulls: false
     defaults_version: 1
     listen: {}
-    row: 8
+    row: 7
     col: 0
     width: 7
     height: 5
-  - type: button
-    name: button_899
-    rich_content_json: '{"text":"New Button","description":"","newTab":true,"alignment":"center","size":"medium","style":"FILLED","color":"#1A73E8","href":"https://datumstudiopartner.cloud.looker.com/dashboards/osumi_yo_pj::testdashboard2"}'
-    row: 0
-    col: 0
-    width: 24
-    height: 1
+  filters:
+  - name: Longitude
+    title: Longitude
+    type: field_filter
+    default_value: ''
+    allow_multiple_values: true
+    required: false
+    ui_config:
+      type: range_slider
+      display: inline
+    model: osumi_y_pj
+    explore: distribution_centers
+    listens_to_filters: []
+    field: distribution_centers.longitude
