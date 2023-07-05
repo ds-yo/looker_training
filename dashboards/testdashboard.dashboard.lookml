@@ -50,7 +50,7 @@
     width: 8
     height: 7
   - title: piyo
-    name: piyopipipi------
+    name: piyohoge
     model: osumi_y_pj
     explore: events
     type: table
