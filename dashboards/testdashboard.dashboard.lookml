@@ -50,7 +50,7 @@
     width: 8
     height: 7
   - title: piyo
-    name: piyo
+    name: piyopi---yo
     model: osumi_y_pj
     explore: events
     type: table
@@ -73,17 +73,3 @@
     col: 0
     width: 7
     height: 5
-  filters:
-  - name: Longitude
-    title: Longitude
-    type: field_filter
-    default_value: ''
-    allow_multiple_values: true
-    required: false
-    ui_config:
-      type: range_slider
-      display: inline
-    model: osumi_y_pj
-    explore: distribution_centers
-    listens_to_filters: []
-    field: distribution_centers.longitude
