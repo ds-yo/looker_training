@@ -9,7 +9,7 @@ view: pdt_test {
             , concat(
               character_name
               , saga_or_movie
-              , db_sries
+              , db_series
               , power_level
               , updated_at
             ) as pk_field
