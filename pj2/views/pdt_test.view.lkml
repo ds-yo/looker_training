@@ -13,6 +13,7 @@ view: pdt_test {
               , power_level
               , updated_at
             ) as pk_field
+            , dummy_column -- わざとエラーを出す
           from
             "DRAGON_BALL_FOR_PDT"
       ;;
