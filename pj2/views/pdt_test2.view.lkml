@@ -2,7 +2,7 @@ view: pdt_test2 {
   derived_table: {
     create_process: {
       sql_step:
-        SYSTEM$WAIT(10)
+        call SYSTEM$WAIT(10)
         ;;
       sql_step:
         create or replace table ${SQL_TABLE_NAME}
