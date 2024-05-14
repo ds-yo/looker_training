@@ -65,7 +65,7 @@ view: pdt_test2 {
           ;;
     }
     publish_as_db_view: yes
-    datagroup_trigger: pdt_test_datagroup
+    interval_trigger: "9999 hours"
   }
 
 
