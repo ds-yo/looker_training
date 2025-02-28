@@ -65,7 +65,8 @@ view: pdt_test2 {
           ;;
     }
     publish_as_db_view: yes
-    sql_trigger_value: select 1;;
+    interval_trigger: "99999999999999999999 hours"
+    # sql_trigger_value: select 1;;
   }
 
 
